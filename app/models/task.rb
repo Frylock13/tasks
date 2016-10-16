@@ -6,5 +6,6 @@ class Task < ApplicationRecord
 
   def create_worker_if_status_changed_to_solved
     CheckStatusWorker.perform_in(1.minute, self.id) if solved?
+    SendSlackNotification.call(self.title)
   end
 end
