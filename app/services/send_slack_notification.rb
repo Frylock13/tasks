@@ -1,11 +1,10 @@
-class SendSlackNotification
+module SendSlackNotification
 
   require 'slack-notifier'
 
-  def self.call(task_title)
-    notifier = Slack::Notifier.new "#{ENV["SLACK_WEBHOOK_URL"]}", channel: '#general',
-                                              username: 'notifier'
+  def self.call(message)
+    notifier = Slack::Notifier.new(ENV["SLACK_WEBHOOK_URL"], channel: '#general', username: 'notifier')
 
-    notifier.ping "#{task_title} has finished"
+    notifier.ping "#{message} has finished"
   end
 end
