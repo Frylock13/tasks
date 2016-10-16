@@ -15,11 +15,12 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
-    @statuses = Task.statuses.keys.to_a
+    set_statuses_list
   end
 
   # GET /tasks/1/edit
   def edit
+    set_statuses_list
   end
 
   # POST /tasks
@@ -71,5 +72,9 @@ class TasksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params.require(:task).permit(:title, :status)
+    end
+
+    def set_statuses_list
+      @statuses = %i(created in_progress solved)
     end
 end
