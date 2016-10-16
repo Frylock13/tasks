@@ -5,6 +5,6 @@ class Task < ApplicationRecord
   before_save :create_worker_if_status_changed_to_solved, if: :status_changed?
 
   def create_worker_if_status_changed_to_solved
-    CheckStatusWorker.perform_in(1.minute, self.id) if solved?
+    CheckStatusWorker.perform_in(1.minute, id) if solved?
   end
 end

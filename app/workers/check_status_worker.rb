@@ -2,6 +2,10 @@ class CheckStatusWorker
   include Sidekiq::Worker
   def perform(task_id)
     task = Task.find(task_id)
-    task.finished! if task.solved?
+
+    if task.solved?
+      task.finished!
+      SendSlackNotification.call(task.title)
+    end
   end
 end
