@@ -17,7 +17,6 @@ gem 'figaro'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'awesome_print'
-  gem 'rspec-rails', '~> 3.5'
   gem "better_errors"
   gem "binding_of_caller"
 end
@@ -27,6 +26,13 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'rspec-rails', '~> 3.5'  
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
