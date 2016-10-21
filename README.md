@@ -3,4 +3,4 @@
 *Figaro*
 
 `bundle exec figaro install`
-add `ENV["SLACK_WEBHOOK_URL"]` to 'application.yml'
+add `SLACK_WEBHOOK_URL: your_hook` to 'application.yml'

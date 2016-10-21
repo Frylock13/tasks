@@ -5,7 +5,7 @@ class CheckStatusWorker
 
     if task.solved?
       task.finished!
-      SendSlackNotification.call(task.title)
+      SendSlackNotification.call("#{task.title} has finished")
     end
   end
 end
