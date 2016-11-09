@@ -1,0 +1,12 @@
+= javascript_include_tag "//static.opentok.com/webrtc/v2.2/js/TB.min.js"
+
+- if current_user.id == @stream.user_id
+  %p
+    Link to your stream: 
+    = link_to 'Click', watch_streams_path(token: @stream.token)
+
+= link_to 'Back', root_path
+
+.row
+  #stream.col-md-6
+  #publisher.col-md-6
