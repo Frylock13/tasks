@@ -1,4 +1,4 @@
-.container-fluid
+.container-fluid{{"ng-controller" => "ProductsController as products"}}
   .row
     .col-md-12
       %h3.text-center
@@ -11,6 +11,7 @@
             %button.btn.btn-default{:type => "submit"}
               Найти
   .row
+    {{products.test}}
     - @products.each do |product|
       .col-md-3
         %h2= product.name
