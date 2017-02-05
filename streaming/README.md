@@ -1,4 +1,7 @@
 # README
+
+Streaming video service 
+
 ## Setup
 - Clone repository
 - Signup on [tokbox.com](http://tokbox.com) and grab the API keys
