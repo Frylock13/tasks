@@ -6,15 +6,18 @@
       %form.form-horizontal{:role => "form"}
         .form-group
           .col-sm-6.col-sm-offset-2
-            %input.form-control{:type => "text"}/
+            = text_field_tag nil, nil, class: "form-control", data: {"ng-model"=>"search.name"}
           .col-sm-4
-            %button.btn.btn-default{:type => "submit"}
+            %button.btn.btn-default{{"ng-click"=>"products.searchByName(search.name)"}}
               Найти
-  .row
-    {{products.test}}
-    - @products.each do |product|
-      .col-md-3
-        %h2= product.name
-        %p= product.desc
-        = link_to '#', class: 'btn' do
-          %strong= product.company.name
+
+  .row{{"ng-if"=>"products.products_list"}}
+    .col-md-3{{"ng-repeat"=>"product in products.products_list"}}
+      %h2 {{product.name}}
+      %p {{product.desc}}
+      %a{:href => "/", class: "btn"}
+        %strong {{product.company.name}}
+
+  .row{{"ng-if"=>"!products.products_list.length"}}
+    .col-md-12
+      %h2 Товары не найдены
