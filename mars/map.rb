@@ -22,7 +22,7 @@ class Map
       new_coordinates[:x] -= 1
     end
 
-    if new_coordinates[:x].between?(0, y) && new_coordinates[:y].between?(0, y)
+    if new_coordinates[:x].between?(0, x) && new_coordinates[:y].between?(0, y)
       new_coordinates
     else
       # If a robot is trying to cross the limit of map return the old ones
